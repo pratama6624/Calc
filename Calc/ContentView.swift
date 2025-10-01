@@ -8,14 +8,31 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var viewModel = ModeSwitcherViewModel()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            // Top Switcher
+            Picker("Mode", selection: $viewModel.selectedMode) {
+                ForEach(CalcMode.allCases, id: \.self) { mode in
+                    Text(mode.rawValue).tag(mode)
+                }
+            }
+            .pickerStyle(.segmented)
+            .padding()
+            
+            Spacer()
+            
+            // Show different UI based on mode
+            switch viewModel.selectedMode {
+            case .calculator:
+                CalculatorView()
+            case .distance:
+                DistanceConverterView()
+            case .currency:
+                CurrencyConverterView()
+            }
         }
-        .padding()
     }
 }
 
