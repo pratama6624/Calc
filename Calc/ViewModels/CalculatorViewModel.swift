@@ -15,6 +15,17 @@ class CalculatorViewModel: ObservableObject {
     
     func receiveInput(button: CalcButton) {
         switch button {
+        case .parentheses:
+            let openCount = currentInput.filter { $0 == "(" }.count
+            let closeCount = currentInput.filter { $0 == ")" }.count
+            
+            if openCount == closeCount || currentInput.last == "(" || currentInput.isEmpty {
+                currentInput += "("
+            } else {
+                currentInput += ")"
+            }
+            display = currentInput
+            
         case .clear:
             currentInput = ""
             display = "0"
@@ -38,7 +49,9 @@ class CalculatorViewModel: ObservableObject {
     private func calculateResult() {
         let expression = currentInput
             .replacingOccurrences(of: "x", with: "*")
-            .replacingOccurrences(of: "+", with: "/")
+            .replacingOccurrences(of: "÷", with: "/")
+            .replacingOccurrences(of: "+", with: "+")
+            .replacingOccurrences(of: "-", with: "-")
         
         let exp: NSExpression = NSExpression(format: expression)
         if let value = exp.expressionValue(with: nil, context: nil) as? NSNumber {
