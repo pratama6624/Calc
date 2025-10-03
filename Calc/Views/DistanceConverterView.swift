@@ -48,10 +48,18 @@ struct DistanceConverterView: View {
             .padding(.horizontal, 20)
             
             if !viewModel.result.isEmpty {
-                Text("\(viewModel.result)")
-                    .font(.title3)
-                    .bold()
-                    .padding()
+                VStack(spacing: 8) {
+                    Text("\(viewModel.result)")
+                        .font(.title3)
+                        .fontWeight(.medium)
+                    
+                    if !viewModel.conversionInfo.isEmpty {
+                        Text(viewModel.conversionInfo)
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                    }
+                }
+                .padding(.top, 10)
             }
             
             Spacer()
