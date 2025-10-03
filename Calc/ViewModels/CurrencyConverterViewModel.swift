@@ -13,30 +13,41 @@ class CurrencyConverterViewModel: ObservableObject {
     @Published var fromCurrency: String = "USD"
     @Published var toCurrency: String = "IDR"
     @Published var result: String = ""
+    @Published var conversionInfo: String = ""
     
     let currencies = ["USD", "IDR", "EUR", "JPY", "GBP"]
     
-    // Dummy rates
-    private let rates: [CurrencyRate] = [
-        CurrencyRate(from: "USD", to: "IDR", rate: 15000),
-        CurrencyRate(from: "IDR", to: "USD", rate: 1/15000),
-        CurrencyRate(from: "USD", to: "EUR", rate: 0.9),
-        CurrencyRate(from: "EUR", to: "USD", rate: 1.1),
-        CurrencyRate(from: "USD", to: "JPY", rate: 150),
-        CurrencyRate(from: "JPY", to: "USD", rate: 0.0067)
+    private let rates: [String: Double] = [
+        "USD": 1.0,
+        "IDR": 15000,
+        "EUR": 0.9,
+        "JPY": 150,
+        "GBP": 0.78
     ]
     
     func convert() {
         guard let value = Double(amount) else {
-            result = "Invalid amount"
+            result = "Invalid input"
+            conversionInfo = ""
             return
         }
         
-        if let rate = rates.first(where: { $0.from == fromCurrency && $0.to == toCurrency }) {
-            let converted = value * rate.rate
-            result = "\(String(format: "%.2f", converted)) \(toCurrency)"
-        } else {
-            result = "\(value) \(toCurrency) (no rate yet)"
+        guard let fromRate = rates[fromCurrency], let toRate = rates[toCurrency] else {
+            result = "Error"
+            conversionInfo = ""
+            return
         }
+        
+        let usdValue = value / fromRate
+        let convertedValue = usdValue * toRate
+        
+        result = "\(Int(convertedValue)) \(toCurrency)"
+        conversionInfo = conversionRateInfo(from: fromCurrency, to: toCurrency)
+    }
+        
+    private func conversionRateInfo(from: String, to: String) -> String {
+        guard let fromRate = rates[from], let toRate = rates[to] else { return "" }
+        let rate = toRate / fromRate
+        return "1 \(from) = \(rate) \(to)"
     }
 }

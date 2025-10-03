@@ -51,10 +51,18 @@ struct CurrencyConverterView: View {
             
             // Result
             if !viewModel.result.isEmpty {
-                Text("\(viewModel.result)")
-                    .font(.title3)
-                    .fontWeight(.medium)
-                    .padding(.top, 10)
+                VStack(spacing: 8) {
+                    Text("\(viewModel.result)")
+                        .font(.title3)
+                        .fontWeight(.medium)
+                    
+                    if !viewModel.conversionInfo.isEmpty {
+                        Text(viewModel.conversionInfo)
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                    }
+                }
+                .padding(.top, 10)
             }
             
             Spacer()
