@@ -21,7 +21,6 @@ struct CalculatorView: View {
     var body: some View {
         VStack {
             Spacer()
-            
             // Display
             HStack {
                 Spacer()

@@ -26,15 +26,15 @@ enum CalcButton: String {
                 return Color.gray.opacity(0.2)
         }
     }
-    
+        
     var foreColor: Color {
         switch self {
-            case .add, .subtract, .multiply, .divide, .equal:
-                return Color.red
-            case .clear, .delete, .percent, .parentheses:
-                return Color.black
-            default:
-                return Color.black
+        case .add, .subtract, .multiply, .divide, .equal:
+            return Color.red
+        case .clear, .delete, .percent, .parentheses:
+            return Color.black
+        default:
+            return Color.black
         }
     }
 }
