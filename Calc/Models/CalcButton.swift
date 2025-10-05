@@ -19,13 +19,13 @@ enum CalcButton: String {
     var backgroundColor: Color {
         switch self {
             case .add, .subtract, .multiply, .divide:
-                return Color.gray.opacity(0.2)
+                return Color.gray.opacity(0.1)
             case .clear, .delete, .percent, .parentheses:
-                return Color.gray.opacity(0.2)
+                return Color.gray.opacity(0.1)
             case .equal:
                 return Color.orange.opacity(0.8)
             default:
-                return Color.gray.opacity(0.2)
+                return Color.gray.opacity(0.1)
         }
     }
         

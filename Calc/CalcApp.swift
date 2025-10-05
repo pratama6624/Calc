@@ -9,7 +9,8 @@ import SwiftUI
 
 @main
 struct CalcApp: App {
-    @EnvironmentObject var themeVM: ThemeViewModel
+//    @EnvironmentObject var themeVM: ThemeViewModel
+    @StateObject private var themeVM = ThemeViewModel()
     
     var body: some Scene {
         WindowGroup {

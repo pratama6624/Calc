@@ -16,6 +16,12 @@ class DistanceConverterViewModel: ObservableObject {
     
     let units = ["Meter", "Kilometer", "Centimeter", "Mile"]
     
+    let buttons = [
+        ["7", "8", "9", "0"],
+        ["4", "5", "6", "."],
+        ["1", "2", "3", "⌫"]
+    ]
+    
     func appendDigit(_ value: String) {
         if value == "." && input.contains(".") { return }
         input += value
