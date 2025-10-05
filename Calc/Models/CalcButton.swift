@@ -18,10 +18,12 @@ enum CalcButton: String {
     
     var backgroundColor: Color {
         switch self {
-            case .add, .subtract, .multiply, .divide, .equal:
+            case .add, .subtract, .multiply, .divide:
                 return Color.gray.opacity(0.2)
             case .clear, .delete, .percent, .parentheses:
                 return Color.gray.opacity(0.2)
+            case .equal:
+                return Color.orange.opacity(0.8)
             default:
                 return Color.gray.opacity(0.2)
         }
@@ -29,10 +31,12 @@ enum CalcButton: String {
         
     var foreSunColor: Color {
         switch self {
-        case .add, .subtract, .multiply, .divide, .equal:
+        case .add, .subtract, .multiply, .divide:
             return Color.red
         case .clear, .delete, .percent, .parentheses:
             return Color.black
+        case .equal:
+            return Color.white
         default:
             return Color.black
         }
@@ -40,10 +44,12 @@ enum CalcButton: String {
     
     var foreMoonColor: Color {
         switch self {
-        case .add, .subtract, .multiply, .divide, .equal:
+        case .add, .subtract, .multiply, .divide:
             return Color.red
         case .clear, .delete, .percent, .parentheses:
             return Color.white
+        case .equal:
+            return Color.black
         default:
             return Color.white
         }

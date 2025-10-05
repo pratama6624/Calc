@@ -8,16 +8,32 @@
 import Foundation
 
 class DistanceConverterViewModel: ObservableObject {
-    @Published var inputValue: String = ""
+    @Published var input: String = ""
     @Published var fromUnit: String = "Meter"
     @Published var toUnit: String = "Kilometer"
     @Published var result: String = ""
     @Published var conversionInfo: String = ""
     
     let units = ["Meter", "Kilometer", "Centimeter", "Mile"]
+    
+    func appendDigit(_ value: String) {
+        if value == "." && input.contains(".") { return }
+        input += value
+    }
+    
+    func deleteLast() {
+        if !input.isEmpty {
+            input.removeLast()
+        }
+    }
+    
+    func clearAll() {
+        input = ""
+        result = ""
+    }
 
     func convert() {
-        guard let value = Double(inputValue) else {
+        guard let value = Double(input) else {
             result = "Invalid input"
             return
         }
