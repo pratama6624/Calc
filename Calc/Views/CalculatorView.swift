@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CalculatorView: View {
     @StateObject private var viewModel = CalculatorViewModel()
+    @EnvironmentObject var themeVM: ThemeViewModel
     
     let buttons: [[CalcButton]] = [
         [.clear, .delete, .parentheses, .add],
@@ -27,7 +28,7 @@ struct CalculatorView: View {
                 VStack(alignment: .trailing, spacing: 3) {
                     Text(viewModel.display)
                         .font(.system(size: 40, weight: .bold))
-                        .foregroundStyle(.black)
+                        .foregroundStyle(!themeVM.isDarkMode ? .black : .white)
                         .lineLimit(1)
                         .padding(.trailing, 20)
                     
@@ -50,7 +51,7 @@ struct CalculatorView: View {
                         }) {
                             Text(button.rawValue)
                                 .font(.system(size: 24, weight: .medium))
-                                .foregroundStyle(button.foreColor)
+                                .foregroundStyle(!themeVM.isDarkMode ? button.foreSunColor : button.foreMoonColor)
                                 .frame(width: 85, height: 85)
                                 .fontWeight(.bold)
                                 .background(button.backgroundColor)
@@ -69,4 +70,5 @@ struct CalculatorView: View {
 
 #Preview {
     CalculatorView()
+        .environmentObject(ThemeViewModel())
 }

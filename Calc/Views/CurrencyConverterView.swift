@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CurrencyConverterView: View {
     @StateObject private var viewModel = CurrencyConverterViewModel()
+    @EnvironmentObject var themeVM: ThemeViewModel
     
     var body: some View {
         VStack(spacing: 20) {
@@ -17,7 +18,7 @@ struct CurrencyConverterView: View {
             TextField("Enter amount", text: $viewModel.amount)
                 .keyboardType(.decimalPad)
                 .padding()
-                .background(Color.gray.opacity(0.1))
+                .background(!themeVM.isDarkMode ? Color.gray.opacity(0.1) : Color(white: 0.15))
                 .cornerRadius(10)
                 .padding(.horizontal, 20)
             
@@ -30,7 +31,7 @@ struct CurrencyConverterView: View {
                         Text(currency)
                     }
                 }
-                .accentColor(.black)
+                .accentColor(!themeVM.isDarkMode ? .black : .white)
                 .pickerStyle(MenuPickerStyle())
             }
             .padding(.horizontal, 20)
@@ -44,7 +45,7 @@ struct CurrencyConverterView: View {
                         Text(currency)
                     }
                 }
-                .accentColor(.black)
+                .accentColor(!themeVM.isDarkMode ? .black : .white)
                 .pickerStyle(MenuPickerStyle())
             }
             .padding(.horizontal, 20)
@@ -73,10 +74,10 @@ struct CurrencyConverterView: View {
             }) {
                 Text("Convert")
                     .font(.headline)
-                    .foregroundColor(.black)
+                    .foregroundColor(!themeVM.isDarkMode ? .black : .white)
                     .frame(maxWidth: .infinity)
                     .padding()
-                    .background(Color.gray.opacity(0.2))
+                    .background(!themeVM.isDarkMode ? Color.gray.opacity(0.2) : Color(white: 0.2))
                     .cornerRadius(12)
                     .padding(.horizontal, 20)
             }
@@ -86,4 +87,5 @@ struct CurrencyConverterView: View {
 
 #Preview {
     CurrencyConverterView()
+        .environmentObject(ThemeViewModel())
 }

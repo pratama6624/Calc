@@ -8,7 +8,7 @@
 import Foundation
 
 enum CalcMode: String, CaseIterable {
-    case calculator = "Calculator"
+    case calculator = "Basic"
     case distance = "Distance"
     case currency = "Currency"
 }

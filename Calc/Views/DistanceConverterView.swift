@@ -9,13 +9,14 @@ import SwiftUI
 
 struct DistanceConverterView: View {
     @StateObject private var viewModel = DistanceConverterViewModel()
+    @EnvironmentObject var themeVM: ThemeViewModel
     
     var body: some View {
         VStack(spacing: 20) {
             TextField("Enter value", text: $viewModel.inputValue)
                 .keyboardType(.decimalPad)
                 .padding()
-                .background(Color.gray.opacity(0.1))
+                .background(!themeVM.isDarkMode ? Color.gray.opacity(0.1) : Color(white: 0.15))
                 .cornerRadius(10)
                 .padding(.horizontal, 20)
             
@@ -28,7 +29,7 @@ struct DistanceConverterView: View {
                             .foregroundColor(.black)
                     }
                 }
-                .tint(.black)
+                .accentColor(!themeVM.isDarkMode ? .black : .white)
                 .pickerStyle(MenuPickerStyle())
             }
             .padding(.horizontal, 20)
@@ -42,7 +43,7 @@ struct DistanceConverterView: View {
                             .foregroundColor(.black)
                     }
                 }
-                .tint(.black)
+                .accentColor(!themeVM.isDarkMode ? .black : .white)
                 .pickerStyle(MenuPickerStyle())
             }
             .padding(.horizontal, 20)
@@ -69,10 +70,10 @@ struct DistanceConverterView: View {
             }) {
                 Text("Convert")
                     .font(.headline)
-                    .foregroundColor(.black)
+                    .foregroundColor(!themeVM.isDarkMode ? .black : .white)
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(Color.gray.opacity(0.2))
+                    .background(!themeVM.isDarkMode ? Color.gray.opacity(0.2) : Color(white: 0.2))
                     .cornerRadius(12)
             }
             .padding(.horizontal, 20)
@@ -82,4 +83,5 @@ struct DistanceConverterView: View {
 
 #Preview {
     DistanceConverterView()
+        .environmentObject(ThemeViewModel())
 }

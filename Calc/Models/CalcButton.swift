@@ -27,7 +27,7 @@ enum CalcButton: String {
         }
     }
         
-    var foreColor: Color {
+    var foreSunColor: Color {
         switch self {
         case .add, .subtract, .multiply, .divide, .equal:
             return Color.red
@@ -35,6 +35,17 @@ enum CalcButton: String {
             return Color.black
         default:
             return Color.black
+        }
+    }
+    
+    var foreMoonColor: Color {
+        switch self {
+        case .add, .subtract, .multiply, .divide, .equal:
+            return Color.red
+        case .clear, .delete, .percent, .parentheses:
+            return Color.white
+        default:
+            return Color.white
         }
     }
 }
