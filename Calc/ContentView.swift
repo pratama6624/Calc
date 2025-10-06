@@ -58,10 +58,14 @@ struct ContentView: View {
             switch viewModel.selectedMode {
             case .calculator:
                 CalculatorView()
-            case .distance:
-                DistanceConverterView()
+            case .unit:
+                UnitConverterView()
             case .currency:
                 CurrencyConverterView()
+            case .binary:
+                UnitConverterView()
+            case .bmi:
+                UnitConverterView()
             }
             
             Spacer()

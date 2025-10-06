@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DistanceConverterViewModel: ObservableObject {
+class UnitConverterViewModel: ObservableObject {
     @Published var input: String = ""
     @Published var fromUnit: String = "Meter"
     @Published var toUnit: String = "Kilometer"

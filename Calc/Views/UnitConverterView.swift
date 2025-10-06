@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct DistanceConverterView: View {
-    @StateObject private var viewModel = DistanceConverterViewModel()
+struct UnitConverterView: View {
+    @StateObject private var viewModel = UnitConverterViewModel()
     @EnvironmentObject var theme: ThemeViewModel  // biar nyatu sama dark/light mode lo
     
     var body: some View {
@@ -130,6 +130,6 @@ struct DistanceConverterView: View {
 }
 
 #Preview {
-    DistanceConverterView()
+    UnitConverterView()
         .environmentObject(ThemeViewModel())
 }
