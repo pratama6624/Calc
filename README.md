@@ -7,12 +7,20 @@ Includes:
 - Binary Calculator
 - BMI Calculator
 - Unit Converter  
+    - Pressure
+    - Volume
+    - Weight
+    - Speed
+    - Time
+    - Temperature
 
 Built for practicing **UI design** and **logic separation** in Swift.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/f26f50fe-a95d-4245-8601-b82ba834598f" width="200" />
-  <img src="https://github.com/user-attachments/assets/41d2fd36-7b13-4a88-b673-04a2915c4c5e" width="200" />
-  <img src="https://github.com/user-attachments/assets/d18876c1-4d0b-4723-b20f-cbf561536f88" width="200" />
-  <img src="https://github.com/user-attachments/assets/aaaaccb6-38b7-4f04-9ebd-53f6f65f4428" width="200" />
+  <img src="https://github.com/user-attachments/assets/939365f1-f25f-4d32-896c-046098993e8f" width="150" />
+  <img src="https://github.com/user-attachments/assets/53b250d5-0d95-4c43-88e2-7fd03208eb8b" width="150" />
+  <img src="https://github.com/user-attachments/assets/1fe57d45-af94-464c-9805-cef0807b5b88" width="150" />
+  <img src="https://github.com/user-attachments/assets/9dc4efa7-0e73-406b-8f52-fdef44730ad7" width="150" />
+  <img src="https://github.com/user-attachments/assets/4bdbb721-af6d-4cce-b301-937c134f434a" width="150" />
+  <img src="https://github.com/user-attachments/assets/9c743c5b-49d1-477b-9042-0e7209f9407d" width="150" />
 </p>
