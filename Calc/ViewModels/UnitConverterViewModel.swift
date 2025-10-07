@@ -102,8 +102,20 @@ class UnitConverterViewModel: ObservableObject {
             convertedValue = convertTemperature(value)
         }
         
-        result = String(format: "%.4f", convertedValue) + " \(toUnit)"
-        conversionInfo = "\(input) \(fromUnit) → \(result)"
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.groupingSeparator = "."
+        formatter.decimalSeparator = ","
+        formatter.maximumFractionDigits = 4
+        formatter.minimumFractionDigits = 0
+        formatter.locale = Locale(identifier: "id_ID")
+
+        let formattedConverted = formatter.string(from: NSNumber(value: convertedValue)) ?? "\(convertedValue)"
+        let ratio = convertedValue / value
+        let formattedRatio = formatter.string(from: NSNumber(value: ratio)) ?? "\(ratio)"
+        
+        result = "\(formattedConverted) \(toUnit)"
+        conversionInfo = "1 \(fromUnit) = \(formattedRatio) \(toUnit)"
     }
     
     // MARK: - Distance Conversion (from your old code)
