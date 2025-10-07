@@ -9,10 +9,35 @@ import SwiftUI
 
 struct UnitConverterView: View {
     @StateObject private var viewModel = UnitConverterViewModel()
-    @EnvironmentObject var theme: ThemeViewModel  // biar nyatu sama dark/light mode lo
+    @EnvironmentObject var theme: ThemeViewModel
     
     var body: some View {
         VStack(spacing: 16) {
+            
+            // MARK: - Mode Picker (Custom Horizontal Scroll)
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 10) {
+                    ForEach(UnitConverterMode.allCases, id: \.self) { mode in
+                        Text(mode.rawValue.capitalized)
+                            .padding(.vertical, 8)
+                            .padding(.horizontal, 16)
+                            .background(
+                                viewModel.selectedMode == mode
+                                ? Color.orange.opacity(0.8)
+                                : Color.gray.opacity(0.2)
+                            )
+                            .foregroundColor(viewModel.selectedMode == mode ? .white : .primary)
+                            .cornerRadius(10)
+                            .onTapGesture {
+                                viewModel.selectedMode = mode
+                                viewModel.updateUnitsForMode()
+                            }
+                    }
+                }
+                .padding(.horizontal)
+            }
+            
+            // MARK: - Display
             VStack(spacing: 8) {
                 Text(viewModel.input.isEmpty ? "0" : viewModel.input)
                     .font(.system(size: 48, weight: .bold))
@@ -26,6 +51,7 @@ struct UnitConverterView: View {
                         .foregroundColor(.orange)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                         .padding(.horizontal, 14)
+                    
                     Text(viewModel.conversionInfo)
                         .font(.caption)
                         .foregroundColor(.orange)
@@ -37,6 +63,7 @@ struct UnitConverterView: View {
             
             Spacer()
             
+            // MARK: - Unit Pickers
             HStack(spacing: 30) {
                 VStack(alignment: .leading, spacing: 5) {
                     Text("From")
@@ -73,6 +100,7 @@ struct UnitConverterView: View {
             .padding(.horizontal, 4)
             .padding(.bottom, 25)
             
+            // MARK: - Number Buttons
             VStack(spacing: 10) {
                 ForEach(viewModel.buttons, id: \.self) { row in
                     HStack(spacing: 12) {
@@ -94,9 +122,10 @@ struct UnitConverterView: View {
             }
             .padding(.bottom, 0)
             
+            // MARK: - Bottom Buttons
             HStack(spacing: 12) {
                 Button("C") {
-                    //
+                    viewModel.clear()
                 }
                 .font(.title3)
                 .frame(width: 84, height: 84)
@@ -112,7 +141,6 @@ struct UnitConverterView: View {
                 .frame(maxWidth: .infinity, minHeight: 84)
                 .foregroundColor(theme.isDarkMode ? .black : .white)
                 .background(theme.isDarkMode ? Color.orange.opacity(0.8) : Color.orange)
-                .foregroundColor(.white)
                 .cornerRadius(16)
             }
             .padding(.horizontal, 14)

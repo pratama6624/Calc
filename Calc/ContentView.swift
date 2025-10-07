@@ -63,9 +63,9 @@ struct ContentView: View {
             case .currency:
                 CurrencyConverterView()
             case .binary:
-                UnitConverterView()
+                CalculatorView()
             case .bmi:
-                UnitConverterView()
+                CalculatorView()
             }
             
             Spacer()
