@@ -65,7 +65,7 @@ struct ContentView: View {
             case .binary:
                 CalculatorView()
             case .bmi:
-                CalculatorView()
+                BMICalculatorView()
             }
             
             Spacer()
