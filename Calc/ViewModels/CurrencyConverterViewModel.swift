@@ -82,7 +82,7 @@ final class CurrencyConverterViewModel: ObservableObject {
             }
         }
     }
-    
+
     func fetchRates(completion: (() -> Void)? = nil) {
         DispatchQueue.main.async { self.isLoading = true }
 

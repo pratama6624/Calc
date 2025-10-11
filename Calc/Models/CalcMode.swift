@@ -9,9 +9,9 @@ import Foundation
 
 enum CalcMode: String, CaseIterable {
     case calculator = "Basic"
-    case currency = "Currency"
     case binary = "Binary"
     case bmi = "BMI"
+    case financial = "Financial"
     case unit = "Unit Converter"
 }
 
