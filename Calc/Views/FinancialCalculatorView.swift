@@ -52,8 +52,8 @@ struct FinancialCalculatorView: View {
                     CurrencyConverterView()
                 case "Loan":
                     LoanCalculatorView()
-                case "Interest":
-                    InterestCalculatorView()
+                case "Compound Interest":
+                    CompoundInterestView()
                 case "Investment":
                     InvestmentCalculatorView()
                 case "Tax":

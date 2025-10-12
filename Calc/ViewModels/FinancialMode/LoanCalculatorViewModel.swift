@@ -76,7 +76,7 @@ final class LoanCalculatorViewModel: ObservableObject {
         
         isLoading = true
         
-        // simulasi delay biar keliatan loading
+        // Delay simulation
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
             let monthlyRate = r / 100 / 12
             let numerator = p * monthlyRate * pow(1 + monthlyRate, n)
