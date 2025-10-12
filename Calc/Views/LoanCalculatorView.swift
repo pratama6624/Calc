@@ -27,35 +27,35 @@ struct LoanCalculatorView: View {
                 .padding(.horizontal, 14)
                 .padding(.top, 10)
                 
-                HStack {
-                    Spacer()
+                ZStack {
+                    Color.clear
+                    
                     if viewModel.isLoading {
                         Text("Calculating...")
                             .foregroundColor(.orange)
-                            .padding()
-                    } else {
-                        if !viewModel.monthlyPayment.isEmpty {
-                            VStack(spacing: 6) {
-                                Text(viewModel.monthlyPayment)
-                                    .font(.title3)
-                                    .foregroundColor(.orange)
-                                    .frame(maxWidth: .infinity, alignment: .trailing)
-                                    .padding(.horizontal, 14)
-                                
-                                Text(viewModel.totalPayment)
-                                    .font(.caption)
-                                    .foregroundColor(.orange)
-                                    .frame(maxWidth: .infinity, alignment: .trailing)
-                                    .padding(.horizontal, 14)
-                            }
-                            .padding(.top, 10)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    } else if !viewModel.monthlyPayment.isEmpty {
+                        VStack(spacing: 6) {
+                            Text("IDR \(viewModel.monthlyPayment)")
+                                .font(.title3)
+                                .foregroundColor(.orange)
+                                .frame(maxWidth: .infinity, alignment: .trailing)
+                                .padding(.horizontal, 14)
+                            
+                            Text("IDR \(viewModel.totalPayment)")
+                                .font(.caption)
+                                .foregroundColor(.orange)
+                                .frame(maxWidth: .infinity, alignment: .trailing)
+                                .padding(.horizontal, 14)
                         }
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
                     }
                 }
+                .frame(height: 80)
+                .clipped()
+                .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(.trailing, 14)
             }
-            
-            Spacer()
             
             // Tombol field selector
             HStack(spacing: 14) {
