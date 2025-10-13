@@ -18,11 +18,8 @@ enum FinancialCategory: String, CaseIterable {
 enum FinancialMode: String, CaseIterable {
     case loan = "Loan"
     case compoundInterest = "Compound Interest"
-    case simpleInterest = "Simple Interest"
-    case mortgage = "Mortgage"
     case roi = "ROI"
     case profitMargin = "Profit Margin"
-    case breakEven = "Break-Even"
     case savings = "Savings Growth"
 }
 
@@ -181,21 +178,12 @@ final class FinancialViewModel: ObservableObject {
         case .compoundInterest:
             guard let years = Double(input3) else { return }
             output = calculateCompoundInterest(principal: val1, rate: val2, years: years)
-        case .simpleInterest:
-            guard let years = Double(input3) else { return }
-            output = calculateSimpleInterest(principal: val1, rate: val2, years: years)
-        case .mortgage:
-            guard let years = Double(input3) else { return }
-            output = calculateMortgage(principal: val1, rate: val2, years: years)
         case .roi:
             guard let finalValue = Double(input3) else { return }
             output = calculateROI(initial: val1, final: finalValue)
         case .profitMargin:
             guard let cost = Double(input3) else { return }
             output = calculateProfitMargin(revenue: val1, cost: cost)
-        case .breakEven:
-            guard let fixed = Double(input3) else { return }
-            output = calculateBreakEven(price: val1, variableCost: val2, fixedCost: fixed)
         case .savings:
             guard let years = Double(input3) else { return }
             output = calculateSavings(principal: val1, rate: val2, years: years)
@@ -257,11 +245,8 @@ final class FinancialViewModel: ObservableObject {
         switch selectedFinancialMode {
         case .loan: return "Monthly Payment"
         case .compoundInterest: return "Future Value"
-        case .simpleInterest: return "Total with Simple Interest"
-        case .mortgage: return "Monthly Mortgage Payment"
         case .roi: return "Return on Investment (%)"
         case .profitMargin: return "Profit Margin (%)"
-        case .breakEven: return "Units to Break Even"
         case .savings: return "Total Savings After Period"
         }
     }
