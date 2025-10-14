@@ -58,6 +58,8 @@ struct FinancialCalculatorView: View {
                     ROICalculatorView()
                 case "Profit Margin":
                     ProfitMarginView()
+                case "Savings Growth":
+                    SavingGrowthView()
                 default:
                     CurrencyConverterView()
                 }
