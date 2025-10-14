@@ -13,8 +13,10 @@ extension Numeric {
         formatter.numberStyle = .decimal
         formatter.groupingSeparator = "."
         formatter.decimalSeparator = ","
+        formatter.minimumFractionDigits = 0
         formatter.maximumFractionDigits = 0
         return formatter.string(for: self) ?? "\(self)"
+
     }
 }
 

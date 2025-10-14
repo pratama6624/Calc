@@ -54,8 +54,8 @@ struct FinancialCalculatorView: View {
                     LoanCalculatorView()
                 case "Compound Interest":
                     CompoundInterestView()
-                case "Investment":
-                    InvestmentCalculatorView()
+                case "ROI":
+                    ROICalculatorView()
                 case "Tax":
                     TaxCalculatorView()
                 default:
