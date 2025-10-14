@@ -56,8 +56,8 @@ struct FinancialCalculatorView: View {
                     CompoundInterestView()
                 case "ROI":
                     ROICalculatorView()
-                case "Tax":
-                    TaxCalculatorView()
+                case "Profit Margin":
+                    ProfitMarginView()
                 default:
                     CurrencyConverterView()
                 }
