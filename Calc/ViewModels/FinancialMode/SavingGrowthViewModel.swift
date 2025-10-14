@@ -23,7 +23,7 @@ final class SavingGrowthViewModel: ObservableObject {
         ["1", "2", "3", "⌫"],
     ]
     
-    private(set) var activeField: ActiveField = .initialSaving
+    @Published private(set) var activeField: ActiveField = .initialSaving
     
     enum ActiveField {
         case initialSaving, interestRate, durationYears

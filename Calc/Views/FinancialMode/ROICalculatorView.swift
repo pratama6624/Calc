@@ -134,7 +134,7 @@ struct ROICalculatorView: View {
                 .fontWeight(.semibold)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 10)
-                .background(Color.orange.opacity(0.15))
+                .background(viewModel.activeField == active ? Color.orange.opacity(0.3) : Color.gray.opacity(0.1))
                 .foregroundColor(themeVM.isDarkMode ? .white : .black)
                 .cornerRadius(12)
         }

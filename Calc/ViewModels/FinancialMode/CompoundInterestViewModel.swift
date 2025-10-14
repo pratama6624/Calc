@@ -24,7 +24,7 @@ final class CompoundInterestViewModel: ObservableObject {
         ["1", "2", "3", "⌫"],
     ]
     
-    private var activeField: ActiveField = .principal
+    @Published private(set) var activeField: ActiveField = .principal
     
     enum ActiveField {
         case principal, rate, time, frequency

@@ -22,7 +22,7 @@ final class ProfitMarginViewModel: ObservableObject {
         ["1", "2", "3", "⌫"],
     ]
     
-    var activeField: ActiveField = .costPrice
+    @Published private(set) var activeField: ActiveField = .costPrice
     
     enum ActiveField {
         case costPrice, sellingPrice

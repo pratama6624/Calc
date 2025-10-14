@@ -23,7 +23,7 @@ final class ROICalculatorViewModel: ObservableObject {
         ["1", "2", "3", "⌫"]
     ]
     
-    var activeField: ActiveField = .initialInvestment
+    @Published private(set) var activeField: ActiveField = .initialInvestment
     
     enum ActiveField {
         case initialInvestment, finalValue, timePeriod
