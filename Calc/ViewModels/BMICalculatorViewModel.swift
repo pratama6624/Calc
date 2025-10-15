@@ -19,11 +19,7 @@ final class BMICalculatorViewModel: ObservableObject {
         case height, weight
     }
     
-    let buttons: [[String]] = [
-        ["7", "8", "9", "⌫"],
-        ["4", "5", "6", "."],
-        ["1", "2", "3", "0"]
-    ]
+    let buttons: [[String]] = KeypadLayout().basicButtons
     
     func appendDigit(_ value: String) {
         switch activeField {

@@ -18,11 +18,7 @@ final class CompoundInterestViewModel: ObservableObject {
     @Published var totalAmount: String = ""
     @Published var isLoading: Bool = false
     
-    let buttons: [[String]] = [
-        ["7", "8", "9", "0"],
-        ["4", "5", "6", "."],
-        ["1", "2", "3", "⌫"],
-    ]
+    let buttons: [[String]] = KeypadLayout().basicButtons
     
     @Published private(set) var activeField: ActiveField = .principal
     

@@ -18,10 +18,7 @@ class BinaryCalculatorViewModel: ObservableObject {
     private var operation: String = ""
     private var firstValue: Int?
     
-    let buttons: [[String]] = [
-        ["1", "0", "()", "⌫"],
-        ["+", "-", "x", "÷"],
-    ]
+    let buttons: [[String]] = KeypadLayout().binaryButtons
     
     // MARK: - Append Digit
     func appendDigit(_ digit: String) {

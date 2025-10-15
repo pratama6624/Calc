@@ -23,11 +23,7 @@ class UnitConverterViewModel: ObservableObject {
     // MARK: - Data
     @Published var units: [String] = []
     
-    let buttons = [
-        ["7", "8", "9", "0"],
-        ["4", "5", "6", "."],
-        ["1", "2", "3", "⌫"]
-    ]
+    let buttons = KeypadLayout().basicButtons
     
     // MARK: - Init
     init() {
