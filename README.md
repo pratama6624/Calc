@@ -22,6 +22,10 @@ Includes:
 
 Built for practicing **UI design** and **logic separation** in Swift.
 
+## UI/UX Overview
+
+<img width="700" alt="Image" src="https://github.com/user-attachments/assets/a5e3caca-247f-4e70-8cce-1fb3544b211a" />
+
 ## Light Mode
 
 <p align="left">
